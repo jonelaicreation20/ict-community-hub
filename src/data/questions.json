@@ -1,0 +1,848 @@
+{
+  "source": "ESMMAp.aia — E-SMMAp2023, Empowerment Technologies Q1",
+  "preTest": {
+    "timeLimitSeconds": 1800,
+    "questions": [
+      {
+        "id": "ans1txtbox",
+        "question": "1.Currently, this is the fastest mobile network.",
+        "options": [
+          "A. 4.5G",
+          "B. 5G",
+          "C. 4G",
+          "D. 5.5G"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ans2txtbox",
+        "question": "2. This is designed to help people who have visual and reading impairments.",
+        "options": [
+          "A. Social",
+          "B. Assistive",
+          "C. Bookmark",
+          "D. Accesibility"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ans3txtbox",
+        "question": "3. YouTube is a social media website that can be classified as",
+        "options": [
+          "A. Microblogging",
+          "B. Blogs and Forums",
+          "C. Media Sharing",
+          "D. Bookmarking site"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ans4txtbox",
+        "question": "4. This Type of social media focuses on short updates posted by the user",
+        "options": [
+          "A. Social Media",
+          "B. Microblogging",
+          "C. Blogging",
+          "D. Bookmarking Site"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ans5txtbox",
+        "question": "5. According to this magazine, two Philippine cities are part of the top 10 in their research",
+        "options": [
+          "A. Candy Magazine",
+          "B. People Magazine",
+          "C. Reader's Digest",
+          "D. Time Magazine"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ans6txtbox",
+        "question": "6. This refers to the feature where the users are able to categorize and locate information",
+        "options": [
+          "A. Hashtags",
+          "B. Folksonomy",
+          "C. social media",
+          "D. Tagging"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ans7txtbox",
+        "question": "7.A feature of a dynamic website that allows users to put their own content",
+        "options": [
+          "A. Rich User Experience",
+          "B. Long Tail",
+          "C. User Participation",
+          "D. Mass Participation"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ans8txtbox",
+        "question": "8. This is the Operating System for Blackberry phones",
+        "options": [
+          "A. Symbian",
+          "B. Windows Mobile",
+          "C. Blackberry OS",
+          "D. IOS"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ans9txtbox",
+        "question": "9. What feature of Microsoft Word allows you to efficiently create documents that have the same general content but may have different recipients or purpose?",
+        "options": [
+          "A. Mail merge",
+          "B. Print merge",
+          "C. Send merge",
+          "D. View merge"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ans10txtbox",
+        "question": "10. Which of the following is not a component of the mail merge?",
+        "options": [
+          "A. Address",
+          "B. File Name",
+          "C. Form Document",
+          "D. Data File"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ans11txtbox",
+        "question": "11. What are the steps in creating a simple mail merge?",
+        "options": [
+          "A. Create form document; preview; insert place holders; print",
+          "B. Preview; insert place holder; create form document; print",
+          "C. Create main document; create date source; insert place holders; preview",
+          "D. Create data source; insert place holder; preview; print"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ans12txtbox",
+        "question": "12. Where can you find the Start Mail Merge button?",
+        "options": [
+          "A. File Tab",
+          "B. Mailing tab",
+          "C. References tab",
+          "D. Home tab"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ans13txtbox",
+        "question": "13. What tells Microsoft Word exactly to place the  information coming from the data file to the main document?",
+        "options": [
+          "A. Data Source",
+          "B. Insertion line",
+          "C. Place Holder",
+          "D. Insertion tag"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ans14txtbox",
+        "question": "14. What button allows you to see the result of your mail merge even before you print or send it?",
+        "options": [
+          "A. Preview results",
+          "B. Insertion line",
+          "C. Address block",
+          "D. Greeting line"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ans15txtbox",
+        "question": "15. What image compression/file type is capable of displaying simple animation?",
+        "options": [
+          "A. bmp",
+          "B. gif",
+          "C. jpg",
+          "D. png"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ans16txtbox",
+        "question": "16. Which image compression type allows you to display images in full color just like in digital pictures?",
+        "options": [
+          "A. bmp",
+          "B. gif",
+          "C. jpg",
+          "D. png"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ans17txtbox",
+        "question": "17. A program designed to create spreadsheets which can later be usedto analyze statistical data",
+        "options": [
+          "A. Microsoft Excel",
+          "B. Microsoft Word",
+          "C. Microsoft Publisher",
+          "D. Microsoft Onenote"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ans18txtbox",
+        "question": "18. A number format that puts a dollar symbol before each value by default",
+        "options": [
+          "A. Percent",
+          "B. Accounting",
+          "C. Comma",
+          "D. Date/time"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ans19txtbox",
+        "question": "19. A function that adds a range of cells",
+        "options": [
+          "A. ADD",
+          "B. PLUS",
+          "C. SUM",
+          "D. TOTAL"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ans20txtbox",
+        "question": "20. A function that gets the average of range cells",
+        "options": [
+          "A. AVERAGE",
+          "B. SUM",
+          "C. MEAN",
+          "D. MEDIAN"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ans21txtbox",
+        "question": "21. A function used to count the number of cells that contains something in them if the criteria are met",
+        "options": [
+          "A. COUNT",
+          "B. COUNTNOW",
+          "C. COUNTING",
+          "D. COUNTIF"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ans22txtbox",
+        "question": "22. The shortcut key for the format cells dialog box",
+        "options": [
+          "A. Ctrl + F",
+          "B. Shift + F",
+          "C. Ctrl + 1",
+          "D. Alt + 1"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ans23txtbox",
+        "question": "23. These are visual elements creating a sense of unity where they relate well with one another",
+        "options": [
+          "A. Style",
+          "B. Proportion",
+          "C. Variety",
+          "D. Emphasis"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ans24txtbox",
+        "question": "24. It makes complex data become more visually appealing to average user.",
+        "options": [
+          "A. Tables",
+          "B. Piktocharts",
+          "C.Infographics",
+          "D. Slideshows"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ans25txtbox",
+        "question": "25. The file extension JPEG stands for",
+        "options": [
+          "A. Joint Photograph Experts Groups",
+          "B. Jotter Prime Element Garnish",
+          "C. Japan Photo Excellence Guild",
+          "D. None of the above"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ans26txtbox",
+        "question": "26. This site offers an online to-do checklist for your entire team",
+        "options": [
+          "A. Team Structure",
+          "B. Team Dynamics",
+          "C. Yammer",
+          "D. Trello"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ans27txtbox",
+        "question": "27. This social networking site allows you to create a graph wherein people can collaborate",
+        "options": [
+          "A. Multiply",
+          "B. Plurk",
+          "C. Twitter",
+          "D. Facebook"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ans28txtbox",
+        "question": "28. It is a website contains information from different sources and places them in one location in a uniform way",
+        "options": [
+          "A. Trello",
+          "B. Search Engine",
+          "C. Portal",
+          "D. Wiki"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ans29txtbox",
+        "question": "29. It is an online petition platform that allows the online community to create or sign petitions",
+        "options": [
+          "A. Weebly",
+          "B. Pinterest",
+          "C. Change.org",
+          "D. Wiki"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ans30txtbox",
+        "question": "30. What made EDSA Dos protest successful?",
+        "options": [
+          "A. Facebook Social Campaign",
+          "B. Text brigades",
+          "C. A radio broadcast",
+          "D. None of the above"
+        ],
+        "answer": "B"
+      }
+    ]
+  },
+  "quizzes": {
+    "timeLimitSeconds": 900,
+    "questions": [
+      {
+        "id": "ansM1txtbx1",
+        "question": "1. Which device is NOT included in ICT?",
+        "options": [
+          "A. Smartphone",
+          "B. The Internet",
+          "C. Wrist Watch",
+          "D. Twitter"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ansM1txtbx2",
+        "question": "2. How is the Web different from the Internet?",
+        "options": [
+          "A. The internet involves larger networks than the web.",
+          "B. The web is a software while the internet is the hardware.",
+          "C. The internet is an older term people used for the web.",
+          "D. There is no difference between the two."
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ansM1txtbx3",
+        "question": "3. Reddit is an online platform where people can create a post (sub reddit) and other people can respond on it. Which web version is characterized by Reddit?",
+        "options": [
+          "A. Web 1.0",
+          "B. Web 2.0",
+          "C. Web 3.0",
+          "D. Reddit is not a website"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ansM1txtbx4",
+        "stimulus": "Modern computers are wonders of technology. They can perform multiple functions like watching videos, typing documents, editing images and much more. That in the past, these are done by different device or gadget.",
+        "question": "4. Which ICT trend is described with the statement above?",
+        "options": [
+          "A. Convergent Technologies",
+          "B. Social Media",
+          "C. Mobile Technologies",
+          "D. World Wide Web"
+        ],
+        "answer": "A",
+        "needsReview": true,
+        "reviewNote": "RESTORED STIMULUS. The item referred to a statement that was lost in the App Inventor export, leaving it unanswerable. Text recovered verbatim from the Assessment section of M1.pdf (Module 1.1, p.11). Existing answer A (Convergent Technologies) is consistent with the restored statement."
+      },
+      {
+        "id": "ansM1txtbx5",
+        "question": "5. How will you describe if something is ICT?",
+        "options": [
+          "A. ICT focuses on the hardware aspect of networks, where it allows interconnection of networks.",
+          "B. ICT refers to systems and protocols used inside the internet in able for other\ncomputers to interact with other computers.",
+          "C. ICT allows people to communicate quickly with each other.",
+          "D. ICT refers to hardware or software that allow access, storage, transmission and\nmanipulation of information"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ansM1txtbx6",
+        "question": "6. What does ICT stands for?",
+        "options": [
+          "A. Information and Communication Technology.",
+          "B. Integral Convergent Technology",
+          "C. Interoperable Cellular Telecommunication",
+          "D. Internet Communication Technology"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ansM1txtbx7",
+        "question": "7. Which best describe the Web 3.0 keyword “Executable”?",
+        "options": [
+          "A. This is the interaction of different application in your device.",
+          "B. The use of mobile applications interacting with other application.",
+          "C. Processing the input of the user based on other data.",
+          "D. The Keyword of Web 3.0 is not Executable."
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ansM1txtbx8",
+        "question": "8. How will you describe Social Media?",
+        "options": [
+          "A. Multiple different devices combine into a single gadget because of technological\nadvancement.",
+          "B. These are platforms that allow users to communicate in an online social communities.",
+          "C. This is the miniaturization of previously heavy or big technology.",
+          "D. These are web technologies that allow the user to add content."
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ansM1txtbx9",
+        "question": "9. Which of the following website functionality demonstrates web 2.0 capability",
+        "options": [
+          "A. An author making an article for people to read.",
+          "B. Posting details of an item for sale online.",
+          "C. Leaving a like on picture on a social media site.",
+          "D. Reverse searching the web of an image."
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ansM1txtbx10",
+        "question": "10. What is the different between all the web technologies (web 1.0, web 2.0 and web 3.0)?",
+        "options": [
+          "A. Web technological milestone as invented on certain time periods",
+          "B. It represents the computer hardware technology the web is running on.",
+          "C. These are different version of the web protocols that runs in the internet.",
+          "D. Functionality and features that it represents."
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ansM1txtbx11",
+        "question": "11.As a Technological Trend, why are smartphone an example of mobile technology?",
+        "options": [
+          "A. It is the combination of different technological devices.",
+          "B. It is an example of device that is small and portable.",
+          "C. It allows instant mass communication.",
+          "D. It is a device that utilizes cellular communication technology."
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ansM1txtbx12",
+        "question": "12.What is the HTTP?",
+        "options": [
+          "A. It is the Hyper Text Transfer Protocol or the very code a website use to be displayed.",
+          "B. It acts as a web program that analyzes data transfers for malicious codes",
+          "C. It is the procedure of how data is transferred online between different networks",
+          "D. It is a markup language that details how different elements are displayed."
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ansM1txtbx13",
+        "question": "13.Which is the best example of current technology that demonstrate full Web 3.0 technology",
+        "options": [
+          "A. E-commerce sites like Lazada or Shopee.",
+          "B. Self-correcting spelling functions in Microsoft application.",
+          "C. Smart phone applications.",
+          "D. Web 3.0 is not yet fully realized or developed."
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ansM1txtbx14",
+        "question": "14.What definition describes the Internet?",
+        "options": [
+          "A. It is the interconnection of computers, hardware and networks.",
+          "B. It allows the transfer of data from one computer to another.",
+          "C. It is a network of different web applications that allows quick transfer of data.",
+          "D. It is the collection of different websites and webpages searchable using web browsers."
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ansM1txtbx15",
+        "stimulus": "Short wave radios during World War II were big and bulky but today we have communication devices that can fit in our pocket.",
+        "question": "15. Which ICT technological trend is described in the given statement?",
+        "options": [
+          "A. Social Media",
+          "B. Mobile Technologies",
+          "C. Convergent Technologies",
+          "D. Cellular Communication"
+        ],
+        "answer": "B",
+        "needsReview": true,
+        "reviewNote": "RESTORED STIMULUS. Same defect as ansM1txtbx4 — the referenced statement was lost in the export. Text recovered verbatim from the Assessment section of M1.pdf (Module 1.1, p.13). Existing answer B (Mobile Technologies) is consistent with the restored statement."
+      },
+      {
+        "id": "ansM12txtbx1",
+        "question": "1. What is the online platform where you can store your files online?",
+        "options": [
+          "A. Google Drive",
+          "B. Photoshop",
+          "C. PowerPoint",
+          "D. YouTube"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ansM12txtbx2",
+        "question": "2. What platform is used for advertising?",
+        "options": [
+          "A. Facebook",
+          "B. Instagram",
+          "C. Twitter",
+          "D. YouTube"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ansM12txtbx3",
+        "question": "3. Which is specially designed for businesses and professionals?",
+        "options": [
+          "A. Google drive",
+          "B. Instagram",
+          "C. LinkedIn",
+          "D. Photoshop"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ansM12txtbx4",
+        "question": "4. Which of the following is the operating system of Blackberry phones?",
+        "options": [
+          "A. Blackberry OS",
+          "B. Candy",
+          "C. Symbian",
+          "D. Windows Mobile"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ansM12txtbx5",
+        "question": "5. Which site allows you to upload and share media content like images and\nmusic?",
+        "options": [
+          "A. Facebook",
+          "B. Pinterest",
+          "C. Twitter",
+          "D. YouTube"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ansM12txtbx6",
+        "question": "6. Which allows users to create and manage advertising campaigns, generate reports and retrieve information about the ads, campaigns, and organizations\nassociated with an account.",
+        "options": [
+          "A. advertising platforms",
+          "B. communication platform",
+          "C. grouping platform",
+          "D. teaching Platform"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ansM12txtbx7",
+        "question": "7. Which electronic communication platform is used for broadcasting\ninformation?",
+        "options": [
+          "A. Microblog",
+          "B. Social media",
+          "C. Social network",
+          "D. YouTube"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ansM12txtbx8",
+        "question": "8. Which platform can be useful for marketing tangible products?",
+        "options": [
+          "A. Facebook",
+          "B. Instagram",
+          "C. Pinterest",
+          "D. Twitter"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ansM12txtbx9",
+        "question": "9. What type of social media website is Pinterest?",
+        "options": [
+          "A. Blogs and Forums",
+          "B. Bookmarking site",
+          "C. Media Sharing",
+          "D. Microblogging"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ansM12txtbx10",
+        "question": "10. Which of the following is a communication service provider in the Philippines?",
+        "options": [
+          "A. Lazada",
+          "B. Smart Telecommunication",
+          "C. Social Security System",
+          "D. Twitter"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ansM12txtbx11",
+        "question": "11. Which of the following types of social media websites focuses on short updates posted by the user?",
+        "options": [
+          "A. Blogging",
+          "B. Hashtagging",
+          "C. Microblogging",
+          "D. Social Media"
+        ],
+        "answer": "C",
+        "needsReview": true,
+        "reviewNote": "REPLACED DUPLICATE. This item was byte-identical to ansM12txtbx10 (same stem, options and answer), so the quiz effectively asked 14 questions and awarded 2 marks for one. NOTE: the duplication is in the official M12.pdf Assessment itself (p.15), not the export — the content owner should confirm what item 11 was meant to be. This replacement is taken verbatim from the 'What I Know' section of the same module (M12.pdf, p.2, item 4) so it stays within Module 1.2's own content. It overlaps in topic with pre-test item 4 (ans4txtbox), which is acceptable for a diagnostic but worth a look."
+      },
+      {
+        "id": "ansM12txtbx12",
+        "question": "12. Which is the leading video-sharing platform?",
+        "options": [
+          "A. Facebook",
+          "B. Instagram",
+          "C. Twitter",
+          "D. YouTube"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ansM12txtbx13",
+        "question": "13. What social networking site can register and post your profile, connect with friends, and comment on topics in a generally interactive way?",
+        "options": [
+          "A. Facebook",
+          "B. Instagram",
+          "C. Twitter",
+          "D. YouTube"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ansM12txtbx14",
+        "question": "14. What country had a social media penetration rate of 58 percent, higher than\nthe average of 47 percent in Southeast Asia?",
+        "options": [
+          "A. Argentina",
+          "B. Brazil",
+          "C. Philippines",
+          "D. South Korea"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ansM12txtbx15",
+        "question": "15. What online platform is use for hashtags and posting pictures?",
+        "options": [
+          "A. Facebook",
+          "B. Instagram",
+          "C. Snapchat",
+          "D. Twitter"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ansM2txtbx1",
+        "question": "1. What is Netiquette?",
+        "options": [
+          "A. Using a net to catch fish",
+          "B. Being mean to other people on Facebook",
+          "C. Presenting proper manners at the dinner table",
+          "D. Showing manners and etiquette on the Internet"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ansM2txtbx2",
+        "question": "2. What should you do if you receive a text or email from someone you don't\nknow?",
+        "options": [
+          "A. Call the police",
+          "B. Delete it without opening it",
+          "C. Open it immediately and reply",
+          "D. Leave it in your inbox until you figure out who it is"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ansM2txtbx3",
+        "question": "3. Which of the following should you never give on the Internet?",
+        "options": [
+          "A. Your age",
+          "B. Your name",
+          "C. Your address",
+          "D. All of the above"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ansM2txtbx4",
+        "question": "4. What should you do to avoid being cyber-bullied?",
+        "options": [
+          "A. Observe proper netiquette rules",
+          "B. Give out personal information to anyone who asks",
+          "C. Ignore any requests from people to be your friend online",
+          "D. Strike first - post mean things about other people on your\nFacebook Wall"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ansM2txtbx5",
+        "question": "5. What should you do if you feel you are being cyber-bullied?",
+        "options": [
+          "A. Call the police",
+          "B. Tell no one, it's embarrassing",
+          "C. Tell a trusted adult like a parent or teacher",
+          "D. Just delete anything referring to you on the Internet"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ansM2txtbx6",
+        "question": "6. What should you never do if you get an embarrassing picture from someone?",
+        "options": [
+          "A. Talk to the person again",
+          "B. Send it on to other friends",
+          "C. Tell your parents or a teacher",
+          "D. Discourage the person from sending pictures like that"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ansM2txtbx7",
+        "question": "7. What should you avoid doing in a chat room?",
+        "options": [
+          "A. Posting your address",
+          "B. Posting your phone number",
+          "C. Revealing financial information",
+          "D. All of the above"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ansM2txtbx8",
+        "question": "8. It is OK to forward or post an email message that you received if______",
+        "options": [
+          "A. The message is typed in all capital letters",
+          "B. It does not contain any copyrighted material",
+          "C. The author of the message has marked it as confidential.",
+          "D. The author of the message hasn’t given you permission to forward\nor post it"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "ansM2txtbx9",
+        "question": "9. Before posting to a discussion group you should ___________",
+        "options": [
+          "A. Read the FAQ",
+          "B. Find the Frequently Asked Questions (FAQ) document",
+          "C. Read some of the existing posts to get an idea of the tone and\ncharacter of the group",
+          "D. All of the above."
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ansM2txtbx10",
+        "question": "10. A flame is _________",
+        "options": [
+          "A. An online chain letter",
+          "B. An expert programmer",
+          "C. A person who consistently breaks the rules of Netiquette",
+          "D. a post or email message that expresses a strong opinion or\ncriticism"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ansM2txtbx11",
+        "question": "11. The Golden Rule of Netiquette is _________",
+        "options": [
+          "A. Remember the human!",
+          "B. A smiley in every message",
+          "C. Don't follow the rules of netiquette",
+          "D. Type in all caps when you're angry."
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "ansM2txtbx12",
+        "question": "12. Spamming is very poor Netiquette and means _______",
+        "options": [
+          "A. Spilling the juice of meat-byproducts into your keyboard",
+          "B. Sending in lines of nonsensical garbage in a chat conversation",
+          "C. Posting or emailing unsolicited advertising messages to a wide\naudience.",
+          "D. Posting a message that contains graphic descriptions of\nsomething really gross"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "ansM2txtbx13",
+        "question": "13. Knowledge and understanding of netiquette is useful because _______",
+        "options": [
+          "A. It will help you create a positive impression on those you meet in\ncyberspace",
+          "B. It explains the conventions already being used by millions of\ncybernauts",
+          "C. It explains some of the technical limitations of online\ncommunications",
+          "D. all of the above."
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "ansM2txtbx14",
+        "question": "14. You've been sent a virus warning, what should you do now?",
+        "options": [
+          "A. Ignore it.",
+          "B. Forward it within your company.",
+          "C. Forward it to everyone in your address book.",
+          "D. Go to a security Web site to learn if it is a real virus."
+        ],
+        "answer": "D",
+        "needsReview": true,
+        "reviewNote": "RESTORED MISSING OPTION. Option C was absent, leaving a 3-choice item whose correct answer was still labelled D. Text recovered verbatim from M2.pdf (Module 2, p.13, item 14). Existing answer D is unchanged and remains correct."
+      },
+      {
+        "id": "ansM2txtbx15",
+        "question": "15. As a common courtesy, when in a chat room you should:",
+        "options": [
+          "A. Report disruptive users",
+          "B. Introduce yourself when you enter a room",
+          "C. Make it clear when you are directing a question or response to a\nspecific user",
+          "D. All of the above"
+        ],
+        "answer": "D"
+      }
+    ]
+  }
+}
