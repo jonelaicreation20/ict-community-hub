@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { HomeIcon, ModulesIcon, QuizzesIcon, ResultsIcon } from "@/components/Icon";
 
 const TABS = [
-  { href: "/", label: "Home", icon: "⌂" },
-  { href: "/modules", label: "Modules", icon: "📗" },
-  { href: "/quizzes", label: "Quizzes", icon: "✎" },
-  { href: "/results", label: "Results", icon: "📊" },
+  { href: "/", label: "Home", Icon: HomeIcon },
+  { href: "/modules", label: "Modules", Icon: ModulesIcon },
+  { href: "/quizzes", label: "Quizzes", Icon: QuizzesIcon },
+  { href: "/results", label: "Results", Icon: ResultsIcon },
 ] as const;
 
 export function TabBar() {
@@ -19,12 +20,12 @@ export function TabBar() {
 
   return (
     <nav className="tabbar" aria-label="Main">
-      {TABS.map((t) => {
-        const active = t.href === "/" ? pathname === "/" : pathname.startsWith(t.href);
+      {TABS.map(({ href, label, Icon }) => {
+        const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
         return (
-          <Link key={t.href} href={t.href} className={`tab${active ? " on" : ""}`} aria-current={active ? "page" : undefined}>
-            <i aria-hidden="true">{t.icon}</i>
-            {t.label}
+          <Link key={href} href={href} className={`tab${active ? " on" : ""}`} aria-current={active ? "page" : undefined}>
+            <Icon />
+            {label}
           </Link>
         );
       })}
