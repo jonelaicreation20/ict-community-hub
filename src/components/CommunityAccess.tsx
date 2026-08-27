@@ -119,7 +119,21 @@ function Registration() {
               setClassroom(found);
               setView("student-details");
             } catch (reason) {
-              setError(reason instanceof Error ? reason.message : "Class code not found.");
+              if (!hasSheetConnection()) {
+                // Pilot mode: accept any six-digit code until the shared
+                // classroom sheet is connected.
+                setClassroom({
+                  code,
+                  teacherName: "Pilot class",
+                  school: "",
+                  section: "",
+                  subject: "",
+                  gradeLevel: "",
+                });
+                setView("student-details");
+              } else {
+                setError(reason instanceof Error ? reason.message : "Class code not found.");
+              }
             } finally {
               setBusy(false);
             }
@@ -137,21 +151,34 @@ function Registration() {
   }
 
   if (view === "student-details" && classroom) {
+    const needsPilotDetails = !classroom.school;
     return (
       <main className="entry-screen entry-flow">
-        <EntryHeader onBack={() => { setError(""); setView("student-code"); }} eyebrow="Student · Step 2 of 2" title="Tell us who you are" lead="Check your class, then enter your details." />
+        <EntryHeader
+          onBack={() => { setError(""); setView("student-code"); }}
+          eyebrow="Student · Step 2 of 2"
+          title="Tell us who you are"
+          lead={needsPilotDetails ? "Enter your details to continue to the pilot app." : "Check your class, then enter your details."}
+        />
         <form
           className="entry-form entry-form-card"
           onSubmit={async (event) => {
             event.preventDefault();
             const data = new FormData(event.currentTarget);
+            const joinedClassroom: Classroom = needsPilotDetails ? {
+              ...classroom,
+              school: String(data.get("school") ?? "").trim(),
+              section: String(data.get("section") ?? "").trim(),
+              subject: String(data.get("subject") ?? "").trim(),
+              gradeLevel: String(data.get("gradeLevel") ?? "").trim(),
+            } : classroom;
             const student: StudentProfile = {
               role: "student",
               id: newStudentId(),
               name: String(data.get("name") ?? "").trim(),
               email: String(data.get("email") ?? "").trim().toLowerCase(),
               joinedAt: Date.now(),
-              classroom,
+              classroom: joinedClassroom,
             };
             setBusy(true);
             setError("");
@@ -166,7 +193,17 @@ function Registration() {
             }
           }}
         >
-          <ClassSummary classroom={classroom} />
+          {needsPilotDetails ? (
+            <>
+              <div className="setup-warning">Pilot mode: any 6-digit code is accepted for testing.</div>
+              <TextField name="school" label="School" placeholder="San Pedro High School" />
+              <div className="form-pair">
+                <TextField name="gradeLevel" label="Grade level" placeholder="Grade 11" />
+                <TextField name="section" label="Section" placeholder="ICT A" />
+              </div>
+              <TextField name="subject" label="Subject" placeholder="Empowerment Technologies" />
+            </>
+          ) : <ClassSummary classroom={classroom} />}
           <TextField name="name" label="Full name" autoComplete="name" placeholder="Juan Dela Cruz" />
           <TextField name="email" label="School or personal email" type="email" autoComplete="email" placeholder="juan@example.com" />
           <p className="privacy-note">Your details are used only for your teacher’s class record.</p>
