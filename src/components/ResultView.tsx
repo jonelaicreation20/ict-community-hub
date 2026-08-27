@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { LETTERS, type Assessment } from "@/lib/questions";
 import type { Attempt } from "@/lib/storage";
+import { hasSheetConnection } from "@/lib/sheet-sync";
 
 const CIRCUMFERENCE = 2 * Math.PI * 57;
 
@@ -16,8 +17,13 @@ export function ResultView({ assessment, attempt }: { assessment: Assessment; at
     return () => window.cancelAnimationFrame(id);
   }, [percent]);
 
-  const tone = percent >= 75 ? "var(--good)" : percent >= 50 ? "var(--gold)" : "var(--bad)";
+  const tone = percent >= 75 ? "var(--good)" : percent >= 50 ? "var(--mango)" : "var(--bad)";
   const verdict = attempt.timedOut ? "Time's up" : percent >= 75 ? "Well done!" : percent >= 50 ? "Good try" : "Keep going";
+  const syncMessage = attempt.syncState === "synced"
+    ? "✓ Sent to your teacher"
+    : hasSheetConnection()
+      ? "⏳ Saved — will send when you get signal"
+      : "✓ Saved on this phone";
 
   return (
     <>
@@ -51,7 +57,7 @@ export function ResultView({ assessment, attempt }: { assessment: Assessment; at
           {assessment.name}
         </p>
         <span className={`pill ${attempt.syncState === "synced" ? "saved" : "pending"}`}>
-          {attempt.syncState === "synced" ? "✓ Saved on this phone" : "⏳ Saved — will send when you get signal"}
+          {syncMessage}
         </span>
       </div>
 

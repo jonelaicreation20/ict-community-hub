@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useOnline } from "@/lib/offline";
-import { allAttempts, clearAttempts, localSink, saveAttempt, toCSV, type Attempt } from "@/lib/storage";
+import { allAttempts, clearAttempts, saveAttempt, toCSV, type Attempt } from "@/lib/storage";
+import { hasSheetConnection, sendAttempt } from "@/lib/sheet-sync";
 
 export function ResultsHistory() {
   const online = useOnline();
@@ -28,9 +29,7 @@ export function ResultsHistory() {
     };
   }, []);
 
-  /* Anything finished offline is handed to the sink once a connection is back.
-     Today that sink is local, so this only clears the "waiting" marker; when a
-     collector exists, this is the flush that sends it. */
+  /* Anything finished offline is sent to the teacher sheet once connected. */
   useEffect(() => {
     if (!online) return;
     void (async () => {
@@ -41,7 +40,7 @@ export function ResultsHistory() {
       const pending = rows.filter((r) => r.syncState === "pending");
       if (!pending.length) return;
       for (const row of pending) {
-        if (await localSink.send(row)) await saveAttempt({ ...row, syncState: "synced" });
+        if (await sendAttempt(row).catch(() => false)) await saveAttempt({ ...row, syncState: "synced" });
       }
       void load();
     })();
@@ -88,7 +87,13 @@ export function ResultsHistory() {
             </span>
           </span>
           <span style={{ marginLeft: "auto" }}>
-            {a.syncState === "synced" ? <span className="chip saved">✓ Saved</span> : <span className="chip quiz">⏳ Waiting</span>}
+            {a.syncState === "synced" ? (
+              <span className="chip saved">✓ Sent</span>
+            ) : hasSheetConnection() ? (
+              <span className="chip quiz">⏳ Waiting</span>
+            ) : (
+              <span className="chip cloud">On device</span>
+            )}
           </span>
         </div>
       ))}

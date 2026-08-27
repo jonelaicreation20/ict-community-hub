@@ -14,6 +14,7 @@ import {
 } from "@/lib/storage";
 import { useOnline } from "@/lib/offline";
 import { ResultView } from "@/components/ResultView";
+import { sendAttempt } from "@/lib/sheet-sync";
 
 type Phase = "loading" | "intro" | "running" | "done";
 
@@ -70,12 +71,17 @@ export function Runner({ assessment }: { assessment: Assessment }) {
         startedAt,
         submittedAt: Date.now(),
         timedOut,
-        // Nothing leaves the device yet; "pending" marks what a future
-        // teacher-side collector would still need to pick up.
-        syncState: navigator.onLine ? "synced" : "pending",
+        syncState: "pending",
       };
 
       await saveAttempt(record).catch(() => {});
+      if (navigator.onLine) {
+        const sent = await sendAttempt(record).catch(() => false);
+        if (sent) {
+          record.syncState = "synced";
+          await saveAttempt(record).catch(() => {});
+        }
+      }
       await clearSession().catch(() => {});
       setAttempt(record);
       setPhase("done");

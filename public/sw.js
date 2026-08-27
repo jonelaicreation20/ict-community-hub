@@ -8,7 +8,7 @@
  *            opens one (or in bulk from "Save all for offline"), never
  *            precached, so a first load on mobile data stays small.
  */
-const VERSION = "v1";
+const VERSION = "v3";
 const SHELL = `esmmap-shell-${VERSION}`;
 const PDFS = "esmmap-pdfs-v1";
 
@@ -51,6 +51,24 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
+
+  // App bundles: prefer the newest UI when connected, but keep the cached
+  // copy as an offline fallback. This also prevents an old stylesheet from
+  // surviving a pilot update.
+  if (url.pathname.startsWith("/_next/")) {
+    event.respondWith(
+      caches.open(SHELL).then(async (cache) => {
+        try {
+          const res = await fetch(request);
+          if (res.ok) await cache.put(request, res.clone());
+          return res;
+        } catch {
+          return (await cache.match(request)) || Response.error();
+        }
+      }),
+    );
+    return;
+  }
 
   // PDFs: serve from cache when present, otherwise fetch and keep a copy.
   if (url.pathname.startsWith("/assets/") && url.pathname.endsWith(".pdf")) {

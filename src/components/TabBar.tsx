@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HomeIcon, ModulesIcon, QuizzesIcon, ResultsIcon } from "@/components/Icon";
+import { PROFILE_EVENT, readProfile } from "@/lib/classroom";
+import { useEffect, useState } from "react";
 
 const TABS = [
   { href: "/", label: "Home", Icon: HomeIcon },
@@ -13,10 +15,18 @@ const TABS = [
 
 export function TabBar() {
   const pathname = usePathname();
+  const [student, setStudent] = useState(false);
+
+  useEffect(() => {
+    const refresh = () => setStudent(readProfile()?.role === "student");
+    refresh();
+    window.addEventListener(PROFILE_EVENT, refresh);
+    return () => window.removeEventListener(PROFILE_EVENT, refresh);
+  }, []);
 
   // A quiz in progress hides the tab bar: leaving mid-attempt should be a
   // deliberate act, not a stray thumb on the wrong tab.
-  if (pathname.startsWith("/assess/")) return null;
+  if (!student || pathname.startsWith("/assess/")) return null;
 
   return (
     <nav className="tabbar" aria-label="Main">
