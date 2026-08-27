@@ -22,7 +22,6 @@ import {
   getTeacherRecords,
   hasSheetConnection,
   registerStudent,
-  teacherRecordsToCSV,
   type TeacherRecord,
 } from "@/lib/sheet-sync";
 import { clearAttempts, clearSession } from "@/lib/storage";
@@ -283,10 +282,31 @@ function TeacherRegistration({ onBack }: { onBack(): void }) {
   );
 }
 
+const PILOT_MODULE_ACTIVITY = [
+  { code: "1.1", title: "ICT and Its Current State", students: 22, percent: 92 },
+  { code: "1.2", title: "Software Applications and Platforms", students: 19, percent: 79 },
+  { code: "2", title: "Netiquettes", students: 16, percent: 67 },
+  { code: "3", title: "Online Navigation", students: 11, percent: 46 },
+];
+
+const PILOT_QUIZ_ACTIVITY = [
+  { title: "Pre-test", taken: 24, average: 74 },
+  { title: "Module 1.1 quiz", taken: 21, average: 82 },
+  { title: "Module 1.2 quiz", taken: 17, average: 79 },
+  { title: "Module 2 quiz", taken: 12, average: 77 },
+];
+
+const PILOT_RECENT_ACTIVITY = [
+  { initials: "AR", name: "Ana Reyes", action: "Finished Module 1.1 quiz", detail: "Score: 9/10", time: "12 min ago" },
+  { initials: "JM", name: "Joshua Martin", action: "Opened Module 2", detail: "Netiquettes", time: "26 min ago" },
+  { initials: "LC", name: "Liza Cruz", action: "Finished the Pre-test", detail: "Score: 16/20", time: "1 hr ago" },
+];
+
 function TeacherDashboard({ profile }: { profile: TeacherProfile }) {
   const [records, setRecords] = useState<TeacherRecord[]>([]);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const pilotMode = !hasSheetConnection();
 
   const load = useCallback(async () => {
     if (!hasSheetConnection()) return setMessage("Connect the Google Sheet to receive student results from other devices.");
@@ -303,17 +323,7 @@ function TeacherDashboard({ profile }: { profile: TeacherProfile }) {
   }, [profile]);
 
   const studentCount = useMemo(() => new Set(records.map((record) => record.studentEmail.toLowerCase())).size, [records]);
-
-  function download() {
-    if (!records.length) return;
-    const csv = `\uFEFF${teacherRecordsToCSV(records)}`;
-    const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = `${profile.classroom.section.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}-results-${new Date().toISOString().slice(0, 10)}.csv`;
-    anchor.click();
-    URL.revokeObjectURL(url);
-  }
+  const classAverage = records.length ? Math.round(records.reduce((sum, record) => sum + record.percent, 0) / records.length) : 0;
 
   return (
     <main className="teacher-screen">
@@ -329,13 +339,70 @@ function TeacherDashboard({ profile }: { profile: TeacherProfile }) {
           <button className="btn ghost" onClick={() => void navigator.clipboard?.writeText(profile.classroom.code)}>Copy code</button>
         </section>
         <ClassSummary classroom={profile.classroom} />
-        <section className="record-summary">
-          <div><strong>{studentCount}</strong><span>Students</span></div>
-          <div><strong>{records.length}</strong><span>Quiz results</span></div>
+        {pilotMode ? (
+          <div className="pilot-label"><span>Preview</span><strong>Sample class activity</strong><small>For interface testing only—not real student data.</small></div>
+        ) : null}
+        <section className="record-summary teacher-metrics" aria-label="Class summary">
+          <div><span className="metric-icon purple" aria-hidden="true">ST</span><strong>{pilotMode ? 24 : studentCount}</strong><span>Students</span></div>
+          <div><span className="metric-icon yellow" aria-hidden="true">%</span><strong>{pilotMode ? 78 : classAverage}%</strong><span>Class average</span></div>
+          <div><span className="metric-icon teal" aria-hidden="true">▤</span><strong>{pilotMode ? "9/14" : "—"}</strong><span>Modules accessed</span></div>
+          <div><span className="metric-icon orange" aria-hidden="true">✓</span><strong>{pilotMode ? 74 : records.length}</strong><span>Quiz attempts</span></div>
         </section>
-        {message ? <div className="setup-warning">{message}</div> : null}
-        <button className="btn wide" onClick={() => void load()} disabled={loading}>{loading ? "Refreshing…" : "Refresh records"}</button>
-        <button className="btn ghost wide" onClick={download} disabled={!records.length}>Download for Excel (.csv)</button>
+
+        {pilotMode ? (
+          <>
+            <section className="analytics-card">
+              <div className="analytics-heading">
+                <div><p className="eyebrow">LEARNING PROGRESS</p><h2>Modules accessed</h2></div>
+                <span>24 students</span>
+              </div>
+              <div className="analytics-list">
+                {PILOT_MODULE_ACTIVITY.map((module) => (
+                  <div className="progress-row" key={module.code}>
+                    <div className="progress-row-title"><span><b>Module {module.code}</b><small>{module.title}</small></span><strong>{module.students}/24</strong></div>
+                    <div className="analytics-track" role="progressbar" aria-label={`Module ${module.code} accessed by ${module.percent}% of students`} aria-valuenow={module.percent} aria-valuemin={0} aria-valuemax={100}>
+                      <span style={{ width: `${module.percent}%` }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="analytics-note">9 of 14 modules have been opened by at least one student.</p>
+            </section>
+
+            <section className="analytics-card">
+              <div className="analytics-heading">
+                <div><p className="eyebrow">ASSESSMENTS</p><h2>Quiz performance</h2></div>
+                <span>Class average</span>
+              </div>
+              <div className="quiz-analytics-list">
+                {PILOT_QUIZ_ACTIVITY.map((quiz) => (
+                  <div className="quiz-analytics-row" key={quiz.title}>
+                    <span><b>{quiz.title}</b><small>{quiz.taken} of 24 completed</small></span>
+                    <strong>{quiz.average}%<small>average</small></strong>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="analytics-card">
+              <div className="analytics-heading"><div><p className="eyebrow">TODAY</p><h2>Recent activity</h2></div></div>
+              <div className="recent-activity-list">
+                {PILOT_RECENT_ACTIVITY.map((activity) => (
+                  <div className="recent-activity" key={`${activity.name}-${activity.action}`}>
+                    <span className="activity-avatar" aria-hidden="true">{activity.initials}</span>
+                    <span><b>{activity.name}</b><small>{activity.action} · {activity.detail}</small></span>
+                    <time>{activity.time}</time>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </>
+        ) : (
+          <>
+            {message ? <div className="setup-warning">{message}</div> : null}
+            <button className="btn wide" onClick={() => void load()} disabled={loading}>{loading ? "Refreshing…" : "Refresh records"}</button>
+          </>
+        )}
         <button
           className="text-button"
           onClick={async () => {
