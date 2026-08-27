@@ -29,3 +29,9 @@ npm run build
 ```
 
 The production-ready static files are generated in `out/`.
+
+## Render deployment
+
+The included `render.yaml` creates a free Render Static Site from `main` using
+`npm ci && npm run build` and publishes the generated `out/` directory. In the
+Render dashboard, choose **New → Blueprint** and connect this repository.

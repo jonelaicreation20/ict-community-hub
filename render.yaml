@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: ict-community-hub-app
+    runtime: static
+    repo: https://github.com/jonelaicreation20/ict-community-hub
+    branch: main
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./out
+    autoDeployTrigger: commit
