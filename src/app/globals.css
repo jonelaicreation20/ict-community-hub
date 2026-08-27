@@ -172,6 +172,109 @@ body {
   padding-bottom: calc(var(--tab-h) + env(safe-area-inset-bottom, 0px) + var(--s4));
 }
 
+/* ---------- install helper ---------- */
+.install-card {
+  position: fixed;
+  z-index: 80;
+  left: 50%;
+  bottom: calc(var(--tab-h) + env(safe-area-inset-bottom, 0px) + var(--s3));
+  width: min(calc(100% - 32px), 488px);
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: var(--s3);
+  padding: var(--s4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--panel), var(--brand-deep));
+  color: #fff;
+  box-shadow: var(--shadow-lift);
+  animation: install-rise 240ms ease-out;
+}
+
+.install-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 17px 17px 17px 6px;
+  background: #ffcf3f;
+  color: #24203f;
+  font-family: var(--font-display), sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  transform: rotate(-3deg);
+}
+
+.install-copy .eyebrow {
+  margin: 0 28px 3px 0;
+  color: #ffdc66;
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.install-copy h2 {
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-display), sans-serif;
+  font-size: 21px;
+  line-height: 1.1;
+}
+
+.install-copy > p:not(.eyebrow) {
+  margin: var(--s2) 20px 0 0;
+  color: #d9daf8;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.install-copy strong { color: #fff; }
+
+.install-close {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  color: #d9daf8;
+  font: inherit;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.install-action {
+  min-height: 42px;
+  margin-top: var(--s3);
+  padding: 0 var(--s4);
+  border: 0;
+  border-radius: 999px;
+  background: #ffcf3f;
+  color: #24203f;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.install-action:focus-visible,
+.install-close:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+@keyframes install-rise {
+  from { opacity: 0; transform: translate(-50%, 12px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .install-card { animation: none; }
+}
+
 /* ---------- classroom entry ---------- */
 .entry-loading {
   min-height: 100dvh;

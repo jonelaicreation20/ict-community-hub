@@ -5,6 +5,7 @@ import { TabBar } from "@/components/TabBar";
 import { OfflineBanner } from "@/components/OfflineBanner";
 import { ServiceWorker } from "@/components/ServiceWorker";
 import { CommunityAccess } from "@/components/CommunityAccess";
+import { InstallApp } from "@/components/InstallApp";
 
 // Display: tight, slightly quirky grotesque for headings and the wordmark.
 const display = Bricolage_Grotesque({
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <OfflineBanner />
           <div className="content"><CommunityAccess>{children}</CommunityAccess></div>
           <TabBar />
+          <InstallApp />
         </div>
         <ServiceWorker />
       </body>

@@ -8,7 +8,7 @@
  *            opens one (or in bulk from "Save all for offline"), never
  *            precached, so a first load on mobile data stays small.
  */
-const VERSION = "v3";
+const VERSION = "v4";
 const SHELL = `esmmap-shell-${VERSION}`;
 const PDFS = "esmmap-pdfs-v1";
 
