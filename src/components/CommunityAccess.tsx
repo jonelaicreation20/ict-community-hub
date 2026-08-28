@@ -25,6 +25,7 @@ import {
   type TeacherRecord,
 } from "@/lib/sheet-sync";
 import { clearAttempts, clearSession } from "@/lib/storage";
+import { AutoSaveModules } from "@/components/AutoSaveModules";
 
 type EntryView = "choose" | "student-code" | "student-details" | "teacher";
 
@@ -48,6 +49,7 @@ export function CommunityAccess({ children }: { children: ReactNode }) {
 
   return (
     <>
+      <AutoSaveModules />
       <StudentBadge profile={profile} />
       {children}
     </>

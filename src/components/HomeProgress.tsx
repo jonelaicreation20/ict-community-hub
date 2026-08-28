@@ -21,7 +21,7 @@ export function HomeProgress({ total }: { total: number }) {
       </div>
       <p className="muted" style={{ margin: 0 }}>
         {count === 0
-          ? "Save a module to read it without a connection."
+          ? "Your lessons are being prepared inside the app."
           : `${count} ${count === 1 ? "module" : "modules"} will open with no signal.`}
       </p>
     </div>

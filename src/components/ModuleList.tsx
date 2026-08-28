@@ -1,26 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { MODULES, formatMB } from "@/lib/modules";
-import { saveAllModules, useSavedModules, useOnline } from "@/lib/offline";
+import { useSavedModules, useOnline } from "@/lib/offline";
 
 export function ModuleList() {
-  const { saved, refresh } = useSavedModules();
+  const { saved } = useSavedModules();
   const online = useOnline();
-  const [busy, setBusy] = useState(false);
-  const [progress, setProgress] = useState<{ done: number; total: number } | null>(null);
 
   const missing = MODULES.filter((m) => !saved.has(m.slug));
-  const missingBytes = missing.reduce((sum, m) => sum + m.bytes, 0);
-
-  async function handleSaveAll() {
-    setBusy(true);
-    await saveAllModules((done, total) => setProgress({ done, total }));
-    await refresh();
-    setBusy(false);
-    setProgress(null);
-  }
 
   const percent = Math.round(((MODULES.length - missing.length) / MODULES.length) * 100);
 
@@ -29,18 +17,16 @@ export function ModuleList() {
       <div className="card">
         <div className="row">
           <div>
-            <div style={{ fontSize: 13.5, fontWeight: 700 }}>Save all for offline</div>
+            <div style={{ fontSize: 13.5, fontWeight: 700 }}>Lessons saved automatically</div>
             <div className="muted" style={{ marginTop: 2 }}>
               {missing.length === 0
-                ? `All ${MODULES.length} modules saved on this phone`
-                : progress
-                  ? `Saving ${progress.done} of ${progress.total}…`
-                  : `${missing.length} not saved · ${formatMB(missingBytes)}`}
+                ? `All ${MODULES.length} modules are ready inside the app`
+                : online
+                  ? `Preparing ${missing.length} ${missing.length === 1 ? "module" : "modules"} in the background…`
+                  : `Connect once to prepare ${missing.length} more ${missing.length === 1 ? "module" : "modules"}`}
             </div>
           </div>
-          <button className="btn" onClick={handleSaveAll} disabled={busy || missing.length === 0 || !online}>
-            {missing.length === 0 ? "All saved" : busy ? "Saving…" : !online ? "Needs signal" : "Save all"}
-          </button>
+          <span className={`chip ${missing.length === 0 ? "saved" : "cloud"}`}>{missing.length === 0 ? "✓ Ready" : `${MODULES.length - missing.length}/${MODULES.length}`}</span>
         </div>
         <div className="bar">
           <i style={{ width: `${percent}%` }} />

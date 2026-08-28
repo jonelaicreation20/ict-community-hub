@@ -5,6 +5,7 @@ import { MODULES, modulePath, type Module } from "./modules";
 
 /** Cache the service worker also writes into, so both paths agree. */
 export const PDF_CACHE = "esmmap-pdfs-v1";
+export const SAVED_MODULES_EVENT = "ict-hub-saved-modules";
 
 function subscribeToConnectivity(onChange: () => void) {
   window.addEventListener("online", onChange);
@@ -49,17 +50,22 @@ export function useSavedModules() {
 
   useEffect(() => {
     let cancelled = false;
-    void readSavedSlugs()
-      .then((slugs) => {
-        if (cancelled) return;
-        setSaved(new Set(slugs));
-        setReady(true);
-      })
-      .catch(() => {
-        if (!cancelled) setReady(true);
-      });
+    const update = () => {
+      void readSavedSlugs()
+        .then((slugs) => {
+          if (cancelled) return;
+          setSaved(new Set(slugs));
+          setReady(true);
+        })
+        .catch(() => {
+          if (!cancelled) setReady(true);
+        });
+    };
+    update();
+    window.addEventListener(SAVED_MODULES_EVENT, update);
     return () => {
       cancelled = true;
+      window.removeEventListener(SAVED_MODULES_EVENT, update);
     };
   }, []);
 
@@ -77,6 +83,7 @@ export async function saveModule(m: Module) {
   if (await cache.match(modulePath(m))) return true;
   try {
     await cache.add(modulePath(m));
+    window.dispatchEvent(new Event(SAVED_MODULES_EVENT));
     return true;
   } catch {
     return false;
