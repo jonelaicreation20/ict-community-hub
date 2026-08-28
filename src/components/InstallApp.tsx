@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const DISMISSED_KEY = "ict-install-prompt-dismissed";
 const DISMISS_FOR_MS = 7 * 24 * 60 * 60 * 1000;
@@ -25,6 +26,7 @@ function wasRecentlyDismissed() {
 }
 
 export function InstallApp() {
+  const pathname = usePathname();
   const [mode, setMode] = useState<InstallMode>(null);
   const [installPrompt, setInstallPrompt] = useState<InstallPromptEvent | null>(null);
 
@@ -60,7 +62,7 @@ export function InstallApp() {
     };
   }, []);
 
-  if (!mode) return null;
+  if (!mode || pathname !== "/") return null;
 
   const dismiss = () => {
     window.localStorage.setItem(DISMISSED_KEY, String(Date.now()));
